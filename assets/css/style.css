@@ -61,14 +61,17 @@ main .playScreen .game1 {
 }
 
 main .playScreen .game1 .questionArea {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
     align-items: center;
     gap: 3vw;
+    width: 100%;
 }
 
-main .playScreen .game1 .questionArea .boxImgQues,
-main .playScreen .game1 .questionArea .define{
-    width: 50%;
+main .playScreen .game1 .questionArea .leftSide {
+    display: flex;
+    justify-content: center;
 }
 
 main .playScreen .game1 .questionArea .boxImgQues {
@@ -270,3 +273,62 @@ width: 350px;
   
 }
 
+/* ========notsupport======== */
+.notSpAre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.notSpAre .img {
+    width: 60%;
+}
+
+.notSpAre {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+@media screen and (max-width: 1440px) {
+    main .playScreen .game1 .questionArea .boxImgQues {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+    }
+    
+    main .playScreen .game1 .chooseArea {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 0;
+    }
+
+    main .playScreen .game1 .chooseArea .boxImg{
+        width: 100%;
+    }
+
+    main .playScreen .game1 .chooseArea .boxImg img {
+        width: 40%;
+    }
+    main .playScreen .game1 .chooseArea .boxImg .button-74 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    footer, main {
+        display: none;
+    }
+    .notSpAre {
+        display: flex;
+    }
+}

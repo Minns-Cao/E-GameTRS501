@@ -130,14 +130,16 @@ function renderGame1() {
 
     let templateGame1 = `<div class="game1">
     <div class="questionArea">
-        <div class="boxImgQues">
+        <div class="leftSide">
+            <div class="boxImgQues">
             <img
                 src="${urlImg}"
                 alt=""
                 class="imgQues"
             />
+            </div>
         </div>
-        <div class="define ">${define}</div>
+        <div class="define "><p>${define}</p></div>
     </div>
     <div class="chooseArea">
         <div class="boxImg">
@@ -191,14 +193,16 @@ function renderGame2() {
 
     let templateGame1 = `<div class="game1">
     <div class="questionArea">
-        <div class="boxImgQues">
+        <div class="leftSide">
+            <div class="boxImgQues">
             <img
                 src="${urlImg}"
                 alt=""
                 class="imgQues"
             />
+            </div>
         </div>
-        <div class="define ">${question}</div>
+        <div class="define "><p>${question}</p></div>
     </div>
     <div class="chooseArea">
         <div class="boxImg">

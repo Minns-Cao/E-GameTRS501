@@ -134,6 +134,7 @@ function reset() {
     footer.classList.remove("false");
     isWaiting = false;
     showAns = null;
+    clientAns = null;
 }
 
 // render game 1
@@ -295,6 +296,7 @@ function checkAns() {
 
 function giveUp() {
     if (isWaiting === false) {
+        wrongSound.play();
         footer.classList.add("false");
     }
     isWaiting = true;

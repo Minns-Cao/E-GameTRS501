@@ -32,16 +32,16 @@ function animateNumber(
     }
     requestAnimationFrame(updateNumber);
 }
-animateNumber(accuracy, 5000, 0, function (number) {
+animateNumber(accuracy, 3000, 0, function (number) {
     const formattedNumber = number.toLocaleString();
     accuracyElm.innerText = formattedNumber;
 });
 
-animateNumber(points, 5000, 0, function (number) {
+animateNumber(points, 3000, 0, function (number) {
     const formattedNumber = number.toLocaleString();
     pointsElm.innerText = formattedNumber;
 });
-animateNumber(words, 4000, 0, function (number) {
+animateNumber(words, 3000, 0, function (number) {
     const formattedNumber = number.toLocaleString();
     wordsElm.innerText = formattedNumber;
 });

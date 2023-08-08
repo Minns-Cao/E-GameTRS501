@@ -112,6 +112,10 @@ let countGame2 = 0;
 let pointArea = document.querySelector(".pointArea");
 let userScore = 0;
 let nowQues = 1;
+const chooseSound = new Audio("./assets/sound/choose.mp3");
+const renderSound = new Audio("./assets/sound/render.mp3");
+const correctSound = new Audio("./assets/sound/correct.mp3");
+const wrongSound = new Audio("./assets/sound/wrong3.mp3");
 
 // ===============Hàm cộng điểm=================
 function changeScore() {
@@ -270,9 +274,11 @@ function checkAns() {
     console.log(answer, clientAns);
     isWaiting = true;
     if (answer === clientAns) {
+        correctSound.play();
         footer.classList.add("true");
         changeScore();
     } else {
+        wrongSound.play();
         footer.classList.add("false");
     }
     if (mode * 2 === nowQues - 1) {
@@ -297,10 +303,12 @@ function giveUp() {
 function game1() {
     reset();
     answer = renderGame1();
+    renderSound.play();
 }
 function game2() {
     reset();
     answer = renderGame2();
+    renderSound.play();
 }
 
 function chooseAns(elm) {
@@ -311,6 +319,7 @@ function chooseAns(elm) {
             sentance.classList.remove("active");
         });
         elm.classList.add("active");
+        chooseSound.play();
         clientAns = elm.textContent.trim();
     }
 }

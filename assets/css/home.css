@@ -285,9 +285,10 @@ main {
 }
 
 .screenShow.active .boxChooseMode .mode .quality {
-    width: 70%;
+    width: 80%;
     display: flex;
     gap:4%;
+    font-size: 120%;
 }
 
 .screenShow.active .boxChooseMode .mode .btnLearn {
@@ -376,6 +377,9 @@ main {
                 translateX(calc(-50% + var(--width2))) rotate(-360deg);
         }
     }
+    .screenShow.active .boxChooseMode .mode {
+        padding: 33% 7% 7% 7%;
+    }
 }
 
 @media screen and (max-width: 1740px) {
@@ -384,6 +388,12 @@ main {
     }
     .screenShow .pinkBg .name {
         font-size: 350%;
+    }
+    .screenShow.active .boxChooseMode .mode .desc{
+        height: 100px;
+    }
+    .screenShow.active .boxChooseMode .mode .quality{
+        width: 90%;
     }
     @keyframes quay {
         from {
@@ -395,6 +405,7 @@ main {
                 translateX(calc(-50% + var(--width2-5))) rotate(-360deg);
         }
     }
+    
 }
 
 @media screen and (max-width: 1440px) {
@@ -403,6 +414,14 @@ main {
     }
     .screenShow .pinkBg .name {
         font-size: 350%;
+    }
+    .screenShow.active .boxChooseMode .mode .desc{
+        height: 100px;
+        font-size: 110%;
+    }
+    .screenShow.active .boxChooseMode .mode .quality{
+        width: 100%;
+        font-size: 110%;
     }
     @keyframes quay {
         from {
@@ -422,6 +441,20 @@ main {
     }
     .screenShow .pinkBg .name {
         font-size: 350%;
+    }
+    .screenShow.active .boxChooseMode .mode .title{
+        font-size: 170%;
+    }
+    .screenShow.active .boxChooseMode .mode .desc{
+        height: 60px;
+        font-size: 90%;
+    }
+    .screenShow.active .boxChooseMode .mode .quality{
+        width: 100%;
+        font-size: 90%;
+    }
+    .screenShow.active .boxChooseMode .mode .btnLearn{
+        width: 90%;
     }
     @keyframes quay {
         from {
@@ -443,4 +476,28 @@ main {
     .notSpAre {
         display: flex;
     }
+}
+
+
+.allow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    z-index: 10000;
+}
+
+.allow .btnAllow {
+    min-width: 150px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    background-color: #e7c4cb;
+    border-radius: 12px;
 }

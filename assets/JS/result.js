@@ -2,6 +2,7 @@ const getUrl = new URLSearchParams(window.location.search);
 const accuracy = getUrl.get("accuracy");
 const points = getUrl.get("points");
 const words = getUrl.get("words");
+const resultSound = new Audio("./assets/sound/result2.mp3");
 
 let accuracyElm = document.getElementById("accuracy");
 let pointsElm = document.getElementById("points");
@@ -10,7 +11,7 @@ let wordsElm = document.getElementById("words");
 accuracyElm.textContent = accuracy;
 pointsElm.textContent = points;
 wordsElm.textContent = words;
-
+resultSound.play();
 function animateNumber(
     finalNumber,
     duration = 5000,
@@ -44,4 +45,6 @@ animateNumber(words, 4000, 0, function (number) {
     const formattedNumber = number.toLocaleString();
     wordsElm.innerText = formattedNumber;
 });
+
+// -------
 

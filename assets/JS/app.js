@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search);
+const mode = urlParams.get("mode");
+console.log(mode);
 // Hàm để tạo mảng ngẫu nhiên không trùng lặp
 function getRandomArray(arr, count) {
     if (count > arr.length) {
@@ -20,7 +23,7 @@ function getRandomArray(arr, count) {
 }
 
 // Tạo mảng ngẫu nhiên có 10 số từ mảng ban đầu
-const data10Words = getRandomArray(dataWords, 10);
+const data10Words = getRandomArray(dataWords, mode);
 
 // ====================Tạo data các màn chơi======================
 function getRandomUniqueElements(arr, count, firstElementIndex) {
@@ -65,7 +68,7 @@ function generateRandomArrays(sourceArray, lengthArr) {
     return resultArray;
 }
 
-let dataGame = generateRandomArrays(data10Words, 10);
+let dataGame = generateRandomArrays(data10Words, mode);
 
 // ==================hàm xáo trộn mảng===============
 function shuffleArray(arr) {
@@ -82,8 +85,8 @@ function shuffleObjectArray(array) {
     return newArray;
 }
 
-function shuffleObjectArrayMultiTimes(arr, times){
-    for(let i = 0; i < times; i++){
+function shuffleObjectArrayMultiTimes(arr, times) {
+    for (let i = 0; i < times; i++) {
         arr = shuffleObjectArray(arr);
     }
     return arr;
@@ -94,6 +97,7 @@ let dataGame2 = shuffleObjectArrayMultiTimes(dataGame, 5);
 console.log(dataGame1);
 console.log(dataGame2);
 // ==================game 1===============
+let loading = document.querySelector(".loading");
 let playScreen = document.querySelector(".playScreen");
 let footer = document.querySelector("footer");
 let correctAns = document.querySelector(".correctAns");
@@ -105,6 +109,21 @@ let status; // trạng thái đúng hay sai
 let isWaiting = false;
 let countGame1 = 0;
 let countGame2 = 0;
+let pointArea = document.querySelector(".pointArea");
+let userScore = 0;
+let nowQues = 1;
+
+// ===============Hàm cộng điểm=================
+function changeScore() {
+    let score = pointArea.querySelector(".score");
+    pointArea.classList.add("active");
+    userScore += 100;
+    if (score) {
+        score.remove();
+    }
+    score.textContent = userScore;
+    pointArea.insertAdjacentElement("afterbegin", score);
+}
 
 function reset() {
     footer.classList.remove("true");
@@ -115,6 +134,9 @@ function reset() {
 
 // render game 1
 function renderGame1() {
+    if (mode * 2 === nowQues - 1) {
+        return;
+    }
     let urlImg = dataGame1[countGame1][0].urlImg;
     let define = dataGame1[countGame1][0].define;
     let A = dataGame1[countGame1][0].word;
@@ -173,11 +195,15 @@ function renderGame1() {
     // Điều hướng khi bấm nút btnContinues thi chuyển sang game2()
     btnContinues.setAttribute("onclick", "game2()");
     //trả ra đáp án đúng của màn chơi và tăng màn chơi tiếp theo
+    console.log(`câu hỏi hiện tại là: ${nowQues++}`);
     return dataGame1[countGame1++][0].word;
 }
 
 // render game 2
 function renderGame2() {
+    if (mode * 2 === nowQues - 1) {
+        return;
+    }
     let urlImg = dataGame2[countGame2][0].urlImg;
     let question = dataGame2[countGame2][0].question;
     let A = dataGame2[countGame2][0].word;
@@ -236,6 +262,7 @@ function renderGame2() {
     // Điều hướng khi bấm nút btnContinues thi chuyển sang game1()
     btnContinues.setAttribute("onclick", "game1()");
     //trả ra đáp án đúng của màn chơi và tăng màn chơi tiếp theo
+    console.log(`câu hỏi hiện tại là: ${nowQues++}`);
     return dataGame2[countGame2++][0].word;
 }
 
@@ -244,9 +271,27 @@ function checkAns() {
     isWaiting = true;
     if (answer === clientAns) {
         footer.classList.add("true");
+        changeScore();
     } else {
         footer.classList.add("false");
     }
+    if (mode * 2 === nowQues - 1) {
+        const accuracy = (userScore / (mode * 2 * 100)) * 100;
+        const url = `./result.html?accuracy=${accuracy}&points=${userScore}&words=${mode}`;
+        setTimeout(() => {
+            loading.classList.add("active");
+        }, 1500);
+        setTimeout(() => {
+            window.location.href = url;
+        }, 5000);
+    }
+}
+
+function giveUp() {
+    if (isWaiting === false) {
+        footer.classList.add("false");
+    }
+    isWaiting = true;
 }
 
 function game1() {

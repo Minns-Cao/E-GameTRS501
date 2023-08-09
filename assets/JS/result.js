@@ -32,7 +32,7 @@ function animateNumber(
     }
     requestAnimationFrame(updateNumber);
 }
-animateNumber(accuracy, 3000, 0, function (number) {
+animateNumber(Number(accuracy).toFixed(2), 3000, 0, function (number) {
     const formattedNumber = number.toLocaleString();
     accuracyElm.innerText = formattedNumber;
 });

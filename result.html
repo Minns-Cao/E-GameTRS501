@@ -355,6 +355,56 @@
                         <a href="./index.html" class="goHome"
                             ><p class="desc">Play Again</p></a
                         >
+                        <!-- Button trigger modal -->
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="btnDonation"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            style="background-color: transparent !important; border: none;"
+                        >
+                            <img src="./assets/img/logoDonate.svg" alt="" class="iconDonation">
+                        </button>
+
+                        <!-- Modal -->
+                        <div
+                            class="modal"
+                            id="exampleModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1
+                                            class="modal-title fs-5"
+                                            id="exampleModalLabel"
+                                            style="font-weight: 900; text-align: center; font-size: 24px !important; width: 100%;"
+                                        >
+                                            Donut Give Up
+                                        </h1>
+                                        <button
+                                            type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <div class="modal-body" style="font-weight: 700; text-align: center;">Please donate to me to have money to buy donuts</div>
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                        >
+                                            <img src="./assets/img/donate.jpeg" alt="" class="donation" style="width: 100%;">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

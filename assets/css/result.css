@@ -471,7 +471,7 @@ main {
     display: flex;
     justify-content: center;
     gap: 5%;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
 }
 
 .screenShow.active .resultBox .coverResult .boxPoints {
@@ -533,4 +533,28 @@ main {
     text-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
     rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
     rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;;
+}
+
+/* ====fix boostrap5= */
+
+#btnDonation {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+}
+
+#exampleModal {
+    z-index: 99999 !important;
+    backdrop-filter: blur(5px);
+}
+
+#btnDonation img {
+    width: 150px !important;
+}
+
+.modal-backdrop {
+    display: none;
+    z-index: 9999 !important;
 }
